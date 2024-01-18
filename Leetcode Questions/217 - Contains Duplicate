@@ -1,0 +1,35 @@
+class Solution:
+    # This method takes a list of integers 'nums' as input
+    # It returns a boolean value indicating whether the list contains any duplicate values
+    def containsDuplicate(self, nums: [int]) -> bool:        # Create an empty hash set
+        seen = set()
+        # Iterate over the array
+        for i in nums:
+            # If an element is already in the hash set, return True
+            if i in seen:
+                return True
+            # Otherwise, add the element to the hash set
+            seen.add(i)
+        # If we finish iterating over the array and have not found a duplicate, return False
+        return False
+        
+# Approach
+# We can solve this problem using a hash set. We can iterate over the array and add each element to the hash set. 
+# If we encounter an element that is already in the hash set, we can return True, since it means that we have found a duplicate. 
+# If we finish iterating over the entire array and have not found a duplicate, we can return False.
+
+# Algorithm:
+# 1. Create an empty hash set.
+# 2. Iterate over the array.
+# 3. If an element is already in the hash set, return True.
+# 4. Otherwise, add the element to the hash set.
+# 5. If we finish iterating over the array and have not found a duplicate, return False.
+
+# Complexity
+# Time complexity:
+# O(n) - We iterate over the array once.
+
+# Space complexity:
+# O(n) - We use a hash set to store the elements.
+
+t

@@ -1,0 +1,36 @@
+class Solution:
+    class Solution:
+        def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+            """
+            Given an array of strings, group anagrams together.
+
+            Args:
+            - strs: A list of strings.
+
+            Returns:
+            - A list of lists of strings, where each inner list contains a group of anagrams.
+            """
+            # Create an empty dictionary to store the anagram groups
+            res = {}
+
+            # Iterate through each string in the input list
+            for s in strs:
+                # Sort the string and join the characters back together to create a unique key
+                sString = "".join(sorted(s))
+
+                # If the key doesn't exist in the dictionary, create a new list for it
+                if sString not in res:
+                    res[sString] = []
+
+                # Append the current string to the list of its corresponding anagram group
+                res[sString].append(s)
+
+            # Return a list of the anagram groups
+            return res.values()
+        
+
+'''
+
+This code does not produce duplicate values in the key-value pair because it uses a dictionary to store the anagram groups. In Python, a dictionary is a collection of key-value pairs, where each key is unique. When a new key-value pair is added to a dictionary, if the key already exists, the value associated with that key is updated with the new value. Therefore, in this code, when a new anagram is found, it is added to the list of strings associated with the key that represents its sorted characters. If the key already exists, the new string is simply appended to the existing list of strings. This ensures that each key in the dictionary is unique and that there are no duplicate values associated with any key.
+'''
+

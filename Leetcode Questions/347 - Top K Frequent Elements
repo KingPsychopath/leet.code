@@ -1,0 +1,20 @@
+class Solution(object):
+        def topKFrequent(self, nums, k):
+            """
+            :type nums: List[int] - a list of integers
+            :type k: int - an integer representing the number of top frequent elements to return
+            :rtype: List[int] - a list of integers representing the top k frequent elements in nums
+            """
+            # create a dictionary to store the count of each element in nums
+            count = {}
+            for i in nums:
+                if i not in count:
+                    count[i] = 1
+                else:
+                    count[i] += 1
+            
+            # sort the dictionary by value (count) in descending order
+            sorted_count = sorted(count.items(), key=lambda x: x[1], reverse=True)
+            
+            # return the top k frequent elements as a list
+            return [sorted_count[i][0] for i in range(k)]

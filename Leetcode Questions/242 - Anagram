@@ -1,0 +1,63 @@
+"""
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+Sort both words, count how many words there are and if they aren't equal it's not an anagram..
+
+Compare each term in sorted words..
+# Approach
+<!-- Describe your approach to solving the problem. -->
+Comparing each term in each of the words is O(n^2)
+
+So a better way is, we only need the frequency of each character and to know that the words are equal in length
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+O(n)
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+idk
+
+"""
+
+# Code
+"""
+This Python program checks if two input strings are anagrams of each other.
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+typically using all the original letters exactly once.
+"""
+
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        This method checks if the strings 's' and 't' are anagrams of each other.
+        :param s: First string
+        :param t: Second string
+        :return: True if 's' and 't' are anagrams, False otherwise
+        """
+
+        # If 's' and 't' have different lengths, they cannot be anagrams
+        if len(s) != len(t):
+            return False
+
+        # Dictionaries to store the frequency of each character in 's' and 't'
+        s_freq = {}
+        t_freq = {}
+
+        # Populate 's_freq' with the frequency of each character in 's'
+        for char in s:
+            if char in s_freq:
+                s_freq[char] += 1
+            else:
+                s_freq[char] = 1
+
+        # Populate 't_freq' with the frequency of each character in 't'
+        for char in t:
+            if char in t_freq:
+                t_freq[char] += 1
+            else:
+                t_freq[char] = 1
+
+        
+
+        # If 's_freq' and 't_freq' are equal, 's' and 't' are anagrams
+        return s_freq == t_freq
